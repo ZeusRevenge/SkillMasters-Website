@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKILL MASTERS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+
+    /* --- Estilos generales --- */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f4;
+      color: #000;
+    }
+
+    header {
+      background-color: #000;
+      color: #FFD700;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background-color: #0057B7;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: #0057B7;
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #FFD700;
+      display: inline-block;
+    }
+
+    .group-photo {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .group-photo img {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid #000;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    /* Animación de entrada */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón con efecto hover */
+button:hover {
+  background-color: #000;
+  color: #FFD700;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Enlaces del menú con transición */
+nav a {
+  transition: color 0.3s ease;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to bottom right, #002244, #004488); /* Desvanecido azul oscuro */
+  color: #fff;
+}
+#grupo {
+  background-image: url(https://img.freepik.com/foto-gratis/amigos-que-sientan-mesa-usar-telefono-movil-cafeteria-c_1170-490.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+#grupo::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* oscurece la imagen para que el texto resalte */
+  z-index: -1;
+}
+#intercambio {
+  background-image: url('https://images.unsplash.com/photo-1581091870620-1e7b9c5c2c4f'); /* imagen de personas aprendiendo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+#intercambio::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* oscurece para que el texto se lea bien */
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .section {
+    padding: 20px 10px;
+  }
+
+  form input, form select, form button {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  .group-photo img {
+    width: 100%;
+    border-width: 3px;
+  }
+}
+
+
+/* Animación de entrada suave */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 6px solid #fff;
+  border-top: 6px solid #FFD700;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.mobile-nav {
+  position: relative;
+  background-color: #002244;
+  padding: 10px;
+  text-align: right;
+}
+
+#menu-toggle {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Menú por defecto (visible en PC) */
+#main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+#menu-toggle {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* oculto por defecto */
+}
+
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: inline-block; /* visible solo en móviles */
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  #main-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #002244;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  #main-menu.show {
+    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 10px;
+  }
+}
+
+.logo-shadow {
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+/* Animación de entrada para el logo */
+.animated-logo {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeZoomIn 1.2s ease forwards;
+}
+
+@keyframes fadeZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilos del logo principal */
+.logo-main {
+  height: 80px;
+  margin-right: 15px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+/* Estilos del logo mini en móviles */
+.logo-mini {
+  height: 50px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Ocultar mini logo en pantallas grandes */
+@media (min-width: 769px) {
+  .logo-mobile {
+    display: none;
+  }
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #002244;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.logo-main {
+  height: 60px;
+  margin-right: 15px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+.sticky-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.job-card {
+  background-color: #003366;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+  transform: scale(1.05);
+}
+
+.job-card i {
+  font-size: 30px;
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+.job-card p strong {
+  color: #FFD700;
+  font-size: 1.1em;
+}
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <button type="submit" style="background-color: #FFD700; color: #000; padding: 10px 20px; border: none; cursor: pointer;">
+    <i class="fas fa-user-plus"></i> Registrarme
+  </button>
+ <!-- Menú móvil -->
+<div class="mobile-nav">
+    <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+    <nav id="main-menu">
+        <a href="#grupo"><i class="fas fa-users"></i> Nuestro Grupo</a>
+        <a href="#intercambio"><i class="fas fa-exchange-alt"></i> Intercambio</a>
+        <a href="#registro"><i class="fas fa-edit"></i> Registro</a>
+        <a href="#membresia"><i class="fas fa-star"></i> Membresía</a>
+        <a href="#panel"><i class="fas fa-user-cog"></i> Mi Panel</a>
+        <a href="#niveles"><i class="fas fa-layer-group"></i> Niveles</a>
+        <a href="#oficios2"><i class="fas fa-briefcase-medical"></i> Más Oficios</a>
+        <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+      </nav>
+      
+  </div>
+  
+  
+    
+</head>
+<!-- Botón flotante de contacto -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+    <a href="https://wa.me/573001234567" target="_blank" style="background-color: #25D366; color: white; padding: 12px 16px; border-radius: 50%; text-decoration: none; font-size: 24px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:contacto@skillmasters.com" style="background-color: #FFD700; color: black; padding: 12px 16px; border-radius: 50%; text-decoration: none; font-size: 24px; margin-left: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+   
+<body>
+<!-- Animación de carga -->
+<div id="loader">
+    <div class="spinner"></div>
+    <p style="color: #FFD700; font-weight: bold;">Cargando SKILL MASTERS...</p>
+  </div>
+  
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 20px; background-color: #000000;">
+    <div style="display: flex; align-items: center;">
+      <img src="d:\Rafrey\Descargas\Pagina\Pagina 2\Logo_1-removebg-preview.png" alt="Logo SkillMasters" style="height: 80px; margin-right: 15px;" class="logo-shadow">
+      <h1 style="margin: 0;">
+        <span style="color: #FFD700;">SKILL</span> <span style="color: #fff;">MASTERS</span>
+      </h1>
+    </div>
+    <nav id="main-menu">
+      <!-- enlaces del menú aquí -->
+    </nav>
+  </header>
+  
+  
+  
+
+  <section class="section" id="grupo">
+    <h2>Conoce al equipo</h2>
+    <p>Somos un grupo apasionado por el aprendizaje, la tecnología y el trabajo colaborativo. Nuestra misión es dominar habilidades clave y compartir conocimiento con autenticidad y creatividad.</p>
+    
+    <div class="group-photo">
+      <!-- Aquí se insertará la imagen del grupo -->
+      <img src="d:\Rafrey\Descargas\Pagina\Pagina 2\Imagen 1.jpg" alt="Integrantes de Skill Masters">
+    </div>
+    <section class="section fade-in" id="grupo">
+
+  </section>
+  <section class="section" id="intercambio">
+    <h2>Intercambio de habilidades</h2>
+    <p>En <span style="color: #FFD700; font-weight: bold;">SKILL MASTERS</span> creemos que todos tienen algo que <span style="color: #fff; font-weight: bold;">enseñar</span> y algo que <span style="color: #FFD700; font-weight: bold;">aprender</span>.</p>
+
+  
+    <form style="margin-top: 20px;">
+      <label for="quiero-aprender"><strong>Quiero aprender:</strong></label><br>
+      <select id="quiero-aprender" name="quiero-aprender" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+        <option value="">Selecciona una profesión</option>
+        <option value="programación">Programación</option>
+        <option value="diseño">Diseño gráfico</option>
+        <option value="marketing">Marketing digital</option>
+        <option value="fotografía">Fotografía</option>
+        <option value="idiomas">Idiomas</option>
+        <option value="edición de video">Edición de video</option>
+<option value="desarrollo web">Desarrollo web</option>
+<option value="contabilidad">Contabilidad</option>
+<option value="psicología">Psicología</option>
+<option value="música">Música</option>
+
+        <!-- Puedes agregar más opciones -->
+      </select>
+  
+      <label for="puedo-ensenar"><strong>Puedo enseñar:</strong></label><br>
+      <input type="text" id="puedo-ensenar" name="puedo-ensenar" placeholder="Escribe tu profesión o habilidad" style="width: 100%; padding: 10px;"><br><br>
+  
+      <button type="submit" style="background-color: #0057B7; color: white; padding: 10px 20px; border: none; cursor: pointer;">Buscar coincidencias</button>
+    </form>
+  
+    <div style="margin-top: 40px;">
+      <h3 style="color: #FFD700;">Plataformas disponibles para enseñar y aprender:</h3>
+      <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" style="height: 50px;">
+        <img src="https://logos-world.net/wp-content/uploads/2022/05/Google-Meet-Symbol-700x394.png" alt="Google Meet" style="height: 50px;">
+        <img src="https://logos-world.net/wp-content/uploads/2021/04/Microsoft-Teams-Symbol.png" alt="Teams" style="height: 50px;">
+        <img src="https://th.bing.com/th/id/R.ecd07d9d51fc3387e6a319eee3f6cf1f?rik=r9lfeWr5oK73Ig&pid=ImgRaw&r=0 " alt="Discord" style="height: 50px;">
+      </div>
+      <p style="text-align: center; margin-top: 10px;">Todas nuestras sesiones se realizan por plataformas seguras y accesibles para todos.</p>
+    </div>
+    <section class="section fade-in" id="grupo">
+
+  </section>
+  <section class="section" id="registro">
+    <h2>Regístrate y comparte tus habilidades</h2>
+    <p>Únete a nuestra comunidad de intercambio de conocimiento. Cuéntanos qué quieres aprender y qué puedes enseñar.</p>
+  
+    <form style="margin-top: 20px;">
+      <label for="nombre"><strong>Nombre completo:</strong></label><br>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
+  
+      <label for="email"><strong>Correo electrónico:</strong></label><br>
+      <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
+  
+      <label for="interes"><strong>Quiero aprender:</strong></label><br>
+      <input type="text" id="interes" name="interes" placeholder="Ej. Programación, diseño..." style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
+  
+      <label for="habilidad"><strong>Puedo enseñar:</strong></label><br>
+      <input type="text" id="habilidad" name="habilidad" placeholder="Ej. Fotografía, idiomas..." style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
+  
+      <button type="submit" style="background-color: #FFD700; color: #000; padding: 10px 20px; border: none; cursor: pointer;">Registrarme</button>
+    </form>
+    
+
+  </section>
+  
+  <section class="section fade-in" id="membresia">
+    <h2><span style="color: #FFD700;">Membresía</span> <span style="color: #fff;">SKILL MASTERS</span></h2>
+    <p>Por solo <span style="color: #FFD700; font-weight: bold;">$21,000 pesos mensuales</span>, accede a beneficios exclusivos que impulsan tu crecimiento profesional.</p>
+  
+    <div style="margin-top: 30px;">
+      <h3 style="color: #FFD700;">Beneficios mensuales:</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><i class="fas fa-coins" style="color: #FFD700;"></i> Recibes <strong>Coins mensuales</strong> para invertir en cursos técnicos y avanzados.</li>
+        <li><i class="fas fa-chalkboard-teacher" style="color: #FFD700;"></i> Acceso prioritario a sesiones especializadas por Zoom, Meet y Teams.</li>
+        <li><i class="fas fa-user-friends" style="color: #FFD700;"></i> Participación en grupos de mentoría y networking profesional.</li>
+        <li><i class="fas fa-award" style="color: #FFD700;"></i> Certificados digitales por cada especialización completada.</li>
+        <li><i class="fas fa-lightbulb" style="color: #FFD700;"></i> Contenido exclusivo: guías, plantillas y recursos premium.</li>
+      </ul>
+    </div>
+  
+    <div style="margin-top: 30px; text-align: center;">
+      <button style="background-color: #FFD700; color: #000; padding: 12px 24px; border: none; font-size: 1.1em; cursor: pointer;">
+        <i class="fas fa-star"></i> ¡Quiero ser miembro!
+      </button>
+    </div>
+    <div style="margin-top: 30px;">
+        <h3 style="color: #FFD700;">¿Qué son los Coins?</h3>
+        <p>Cada mes, los miembros reciben <span style="color: #FFD700; font-weight: bold;">100 Coins</span> que pueden usar para acceder a contenido premium:</p>
+        <ul style="list-style: none; padding-left: 0;">
+          <li><i class="fas fa-cogs" style="color: #FFD700;"></i> Cursos técnicos avanzados (50–100 Coins)</li>
+          <li><i class="fas fa-user-graduate" style="color: #FFD700;"></i> Mentorías personalizadas (80 Coins)</li>
+          <li><i class="fas fa-certificate" style="color: #FFD700;"></i> Certificaciones oficiales (120 Coins)</li>
+          <li><i class="fas fa-book-open" style="color: #FFD700;"></i> Acceso a bibliotecas de recursos (30 Coins)</li>
+        </ul>
+      </div>
+      <div style="margin-top: 20px; text-align: center;">
+        <a href="https://www.payu.com.co/" target="_blank" style="background-color: #FFD700; color: #000; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+          <i class="fas fa-credit-card"></i> Activar Membresía
+        </a>
+      </div>
+      
+  </section>
+  <section class="section fade-in" id="panel">
+    <h2><span style="color: #FFD700;">Mi Panel</span> <span style="color: #fff;">de Membresía</span></h2>
+    <p>Bienvenido, <strong>Usuario Miembro</strong>. Aquí puedes ver tu progreso y beneficios activos:</p>
+  
+    <div style="margin-top: 20px;">
+      <p><i class="fas fa-coins" style="color: #FFD700;"></i> Coins disponibles: <strong>100</strong></p>
+      <p><i class="fas fa-check-circle" style="color: #FFD700;"></i> Cursos activos: <strong>2</strong></p>
+      <p><i class="fas fa-calendar-alt" style="color: #FFD700;"></i> Próxima mentoría: <strong>28 de octubre</strong></p>
+      <p><i class="fas fa-award" style="color: #FFD700;"></i> Certificaciones obtenidas: <strong>1</strong></p>
+    </div>
+  </section>
+  <section class="section fade-in" id="niveles">
+    <h2><span style="color: #FFD700;">Niveles</span> <span style="color: #fff;">de Membresía</span></h2>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+      <tr style="background-color: #FFD700; color: #000;">
+        <th style="padding: 10px;">Nivel</th>
+        <th>Coins mensuales</th>
+        <th>Beneficios</th>
+      </tr>
+      <tr style="background-color: #002244;">
+        <td style="padding: 10px;">Bronce</td>
+        <td>50</td>
+        <td>Acceso a recursos básicos</td>
+      </tr>
+      <tr style="background-color: #003366;">
+        <td style="padding: 10px;">Plata</td>
+        <td>100</td>
+        <td>Mentorías + cursos técnicos</td>
+      </tr>
+      <tr style="background-color: #004488;">
+        <td style="padding: 10px;">Oro</td>
+        <td>150</td>
+        <td>Certificaciones + contenido premium</td>
+      </tr>
+    </table>
+  </section>
+  
+  <section class="section fade-in" id="oficios2">
+    <h2><span style="color: #FFD700;">Descubre</span> <span style="color: #fff;">10 Nuevos Oficios</span></h2>
+    <div class="job-grid">
+      <div class="job-card"><i class="fas fa-tree"></i><h3>Jardinero</h3><p>Cuida espacios verdes con técnica y sensibilidad ambiental.</p><p><strong>Especialización: 40 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-camera-retro"></i><h3>Fotógrafo</h3><p>Captura momentos y productos con estilo profesional.</p><p><strong>Especialización: 70 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-hammer"></i><h3>Albañil</h3><p>Construye y repara estructuras con precisión.</p><p><strong>Especialización: 60 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-cut"></i><h3>Estilista</h3><p>Transforma la imagen personal con estilo.</p><p><strong>Especialización: 50 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-broom"></i><h3>Operario de Limpieza</h3><p>Mantiene espacios impecables.</p><p><strong>Especialización: 30 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-store"></i><h3>Vendedor Comercial</h3><p>Promueve productos y servicios.</p><p><strong>Especialización: 45 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-dumbbell"></i><h3>Entrenador Personal</h3><p>Diseña rutinas físicas adaptadas.</p><p><strong>Especialización: 65 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-palette"></i><h3>Artista Plástico</h3><p>Expresa ideas con técnicas mixtas.</p><p><strong>Especialización: 55 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-headset"></i><h3>Agente de Soporte</h3><p>Resuelve dudas técnicas con empatía.</p><p><strong>Especialización: 35 Coins</strong></p></div>
+      <div class="job-card"><i class="fas fa-box-open"></i><h3>Logístico</h3><p>Gestiona el flujo de productos y entregas.</p><p><strong>Especialización: 50 Coins</strong></p></div>
+    </div>
+  </section>
+  
+  
+  <footer>
+    <p>&copy; 2025 <span style="color: #FFD700;">SKILL MASTERS</span>. Todos los derechos reservados.</p>
+    <div style="margin-top: 10px;">
+      <a href="https://www.instagram.com/skill.masters.2025?igsh=MTd6eHR3Y2tydjk3ag==" target="_blank" style="color: #FFD700; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/skillmasters" target="_blank" style="color: #FFD700; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:contacto@skillmasters.com" style="color: #FFD700; margin: 0 10px;"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener("load", function() {
+  setTimeout(function() {
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+  }, 2000); // 2000 milisegundos = 2 segundos
+});
+
+  </script>
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+      document.getElementById("main-menu").classList.toggle("show");
+    });
+  </script>
+  
+</body>
+</html>
